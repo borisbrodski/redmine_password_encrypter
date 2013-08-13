@@ -10,10 +10,4 @@ This plugin is redistributed under the terms of GPL. For more information see GP
 
 This plugin uses following open source libraries:
 
-* BASE64 algorithm
-** URL: http://www.webtoolkit.info/javascript-base64.html
-
-* JQuery RC4 encryption/decryption (license under GPL)
-** EMail: Email: tony.simek@gmail.com
-** URL: http://0061276.netsolhost.com/tony/rc4doc.html
-
+* crypto-js: https://code.google.com/p/crypto-js/
