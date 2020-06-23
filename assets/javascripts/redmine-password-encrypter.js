@@ -83,8 +83,11 @@ $(function() {
 
 function decorateEncryptedPasswords(element) {
     element.each(function() {
-        c = $(this).html().replace(/PWD-([=A-Za-z0-9+\/]+)/g, '<span class="encrypted-pwd" title="Click to decrypt">$1</span>');
-        $(this).html(c);
+        old_html = $(this).html();
+        new_html = old_html.replace(/PWD-([=A-Za-z0-9+\/]+)/g, '<span class="encrypted-pwd" title="Click to decrypt">$1</span>');
+        if (old_html != new_html) {
+            $(this).html(new_html);
+        }
     });
 }
 
