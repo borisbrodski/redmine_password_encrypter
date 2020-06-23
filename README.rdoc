@@ -1,6 +1,25 @@
-= redmine_password_encrypter
+= Redmine plugin: redmine_password_encrypter
 
-Description goes here
+Add password encryption capability to all "textarea" fields in Redmine, like wiki, ticket description, comments.
+
+Encrypting password:
+
+* In any text area type "PWD-" in a single stroke (without moving cursor or using backspace)
+* The master password prompt appears. (ones per page)
+* Enter your master password
+* The password prompt appears ones more for the password to be encrypted
+* Enter password to be put in the text
+* The password starting with "PWD-" will be inserted at the cursor possition, e.g.:
+  * PWD-U2FsdGVkX1/g1GVP8YXv/3lbgv7ICyB1O+tcQlRubis=
+
+Note 1: If other encrypted password are already present in the text, the master password you will enter will be validated against these existing "PWD-" password. If incorrect, the master password will be rejected and asked one more time.
+
+Note 2: You need to enter master password only ones per HTML page. The master password get reused and only get cleared then going to another HTML page or refreshing the current page manually.
+
+Decrypting passwords:
+
+All encrypted password will be shown trancated in a box. Click on the box, enter master password. The encrypted password box get replaced with the plain text password. Decrypting more passwords doesn't require master password to be entered again until navigating to another page or page refresh.
+
 
 = License
 
