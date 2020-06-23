@@ -21,9 +21,11 @@ function decrypt(crypted, pwd) {
     }
 }
 
-var selectedInput = null;
+$.PWD.currentSrc = null;
+$.PWD.lastSequence = "";
+
 $(function() {
-    $(document).keydown(function(event) {
+    $(document).keypress(function(event) {
         src = event.srcElement;
         if (src != null
             && src.localName == "textarea"
@@ -32,29 +34,34 @@ $(function() {
             if ($.PWD.lastSequence == "PWD" && event.key == "-") {
                 while ($.PWD.password == null) {
                     master_password = prompt("Enter master password", "");
-                    if (master_password == null) {
-                        return
+                    if (master_password != null) {
+                        match = /PWD-([-A-Za-z0-9+\/]+)/.exec(src.value);
+                        if (match && decrypt(match[1], master_password) == null) {
+                            alert("Incorrect password");
+                        } else {
+                            $.PWD.password = master_password;
+                        }
+                    } else {
+                        alert("Can't continue without master password");
+                        break;
                     }
 
-                    match = /PWD-([-A-Za-z0-9+\/]+)/.exec(src.value);
-                    if (match && decrypt(match[1], master_password) == null) {
-                        alert("Incorrect password");
-                    } else {
-                        $.PWD.password = master_password;
-                    }
                 } 
                 if ($.PWD.password != null && $.PWD.password.length > 0) {
                     password = prompt("Enter password to encrypt", "");
                     if (password != null) {
                         encrypted_password = encrypt(password, $.PWD.password);
-                        document.execCommand('insertText', false /*no UI*/,
-                            "-" + encrypted_password);
+                        text = "-" + encrypted_password;
+                        InsertTextAtCursor.insert(src, text);
+                    } else {
+                        alert("No password to encrypt");
                     }
                 }
 
                 $.PWD.lastSequence = "";
 
                 event.preventDefault();
+                src.focus();
                 return false;
             } else {
                 $.PWD.lastSequence = $.PWD.lastSequence + event.key;

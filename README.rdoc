@@ -30,3 +30,5 @@ This plugin is redistributed under the terms of GPL. For more information see GP
 This plugin uses following open source libraries:
 
 * crypto-js: https://code.google.com/p/crypto-js/
+* insert-text-2: https://github.com/fritx/insert-text-2
+
