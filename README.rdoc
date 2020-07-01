@@ -2,6 +2,8 @@
 
 Add password encryption capability to all "textarea" fields in Redmine, like wiki, ticket description, comments.
 
+https://github.com/borisbrodski/redmine_password_encrypter/blob/1d625c4ffcef75760381df9ede8d7c863994a712/thumbnail.png
+
 Encrypting password:
 
 * In any text area type "PWD-" in a single stroke (without moving cursor or using backspace)
