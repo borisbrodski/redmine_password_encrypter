@@ -4,7 +4,7 @@ Redmine::Plugin.register :redmine_password_encrypter do
   name 'Redmine Password Encrypter plugin'
   author 'Boris Brodski'
   description 'Encrypt password on the wiki/issue pages using Javascript. Type PWD(pass1) to start.'
-  version '0.0.1'
+  version '0.9.0'
   url 'https://github.com/borisbrodski/redmine_password_encrypter'
   author_url 'https://github.com/borisbrodski'
 end
