@@ -26,7 +26,8 @@ $.PWD.lastSequence = "";
 
 $(function() {
     $(document).keypress(function(event) {
-        src = event.srcElement;
+	// Event.srcElement is deprecated, change for Event.target
+        src = event.target;
         if (src != null
             && src.localName == "textarea"
             && src == $.PWD.currentSrc
